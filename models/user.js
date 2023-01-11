@@ -22,7 +22,9 @@ User.init({
   }, {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-    modelName: 'User' // We need to choose the model name
+    modelName: 'User', // We need to choose the model name
+    timestamps: true, //timestamps automatically created
+    underscored: true //instead of camel case
   });
 
   module.exports = User
