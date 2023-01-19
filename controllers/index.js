@@ -2,8 +2,8 @@
 
 //imports
 const router = require("express").Router()
-const public = require("./public")
-const dashboard = require("./dashboard") //dashboard.js
+const public = require("./publicRoutes")
+const dashboard = require("./dashboardRoutes") //dashboard.js
 
 
 router.use("/", public)

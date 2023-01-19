@@ -2,10 +2,11 @@
 
 //imports
 require("dotenv").config(); //invoking env
+
 const express = require("express"); //invoking express which will allow us to start the server
 const expHandlebars = require("express-handlebars") //invoking handlebars so that we can use templates
 const sequelize = require("./config/db") //db connection config, sequelize
-const routes = require("./routes") //everything in index is accessible
+const routes = require("./controllers") //everything in index is accessible
 const expressSession = require("express-session") //can attach this session to our sequelize, so user can perform actions as a logged in user
 const sequelizeSession = require("connect-session-sequelize") //create a session in our db
 const SequelizeStore = sequelizeSession(expressSession.Store) //creating Sequelize Store from the session; we have connected the session and the sequelize so that sequelize recognizes logged-in session

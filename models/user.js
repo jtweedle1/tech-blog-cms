@@ -5,6 +5,12 @@ class User extends Model {}
 
 User.init({
     // Model attributes are defined here
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -13,18 +19,13 @@ User.init({
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-      }
+    }
   }, {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-    modelName: 'User', // We need to choose the model name
+    modelName: 'user', // We need to choose the model name
+    tableName: 'user',
     timestamps: true, //timestamps automatically created
-    underscored: true //instead of camel case
   });
 
   module.exports = User
