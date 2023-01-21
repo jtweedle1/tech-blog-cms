@@ -3,11 +3,25 @@
 //imports
 const express = require("express") //so the router can be extracted from express
 const router = express.Router() //extracting the router
-const { User } = require("../models")
+const { User, Post } = require("../models")
 
 //HOMEPAGE ROUTES
-router.get("/", (req, res) => {
-    res.render("pages/homepage")
+router.get("/", async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        const posts = postData.map((post) => post.get({plain: true}))
+        console.log(posts)
+        res.render("pages/homepage", { posts })
+    } catch {
+
+    }
 })
 
 //LOGIN ROUTES
