@@ -26,6 +26,10 @@ Post.init({
     content: {
         type: DataTypes.TEXT,
         allowNull: false
+    },
+    image: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     // Other model options go here

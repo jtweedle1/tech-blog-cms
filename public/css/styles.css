@@ -10,6 +10,10 @@ body {
     height: 100%;
 }
 
+img {
+    max-width: 1500px;
+}
+
 .blog-title {
     font-size: 50px;
 }
@@ -22,12 +26,28 @@ body {
     margin: 35px;
 }
 
+.center-text {
+    text-align: center;
+}
+
+#form-div {
+    padding: 50px;
+}
+
 .flex-center {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
 }
+
+#div, #divv {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 
 .post-div {
     display: flex;
