@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 html {
-    min-height: 100%;
+    height: 100%;
     position: relative;
 }
 
 body {
     font-family: 'Roboto Mono', monospace;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .blog-title {
@@ -42,6 +42,18 @@ body {
     align-items: center;
 }
 
+.flex-100 {
+    flex-basis: 100%;
+}
+
+main {
+    min-height: 100%;
+    display: flex;
+    flex: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 nav {
     margin-bottom: 50px;
 }
@@ -51,7 +63,7 @@ footer {
     width: 100%;
 }
 
-.animate-charcter
+.animate-character
 {
    text-transform: uppercase;
   background-image: linear-gradient(
@@ -72,6 +84,7 @@ footer {
   animation: textclip 2s linear infinite;
   display: inline-block;
       font-size: 100px;
+    text-align: center;
 }
 
 @keyframes textclip {
