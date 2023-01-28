@@ -4,12 +4,17 @@
 const express = require("express") //so the router can be extracted from express
 const router = express.Router() //extracting the router
 const { User, Post } = require("../models")
+const withAuth = require("../utils/auth");
+const uploadImage = require("../cloudinary_upload/uploadimage")
 
 //route to get the dashboard
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
     try {
         //sending Post and User data
-        const postData = await Post.findAll({
+        const dashboardData = await Post.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
             include: [
                 {
                     model: User,
@@ -17,12 +22,30 @@ router.get("/dashboard", async (req, res) => {
                 }
             ]
         })
-        const posts = postData.map((post) => post.get({plain: true}))
-        console.log(posts)
-        res.render("pages/dashboard", { posts })
-    } catch {
-
+        const posts = dashboardData.map((post) => post.get({plain: true}))
+        res.render("pages/dashboard", { posts, loggedIn: req.session.loggedIn, jsFile: "dashboard.js", user_id: req.session.user_id })
+    } catch(err) {
+        res.status(500).json(err);
     }
 })
+
+router.post("/dashboard", async (req, res) => {
+    try {
+      const { title, content, post_image } = req.body;
+      const user_id = req.session.user_id;
+      const image = uploadImage(post_image)
+      .then(async (url) => {
+        const newPost = await Post.create({
+          title,
+          content,
+          post_image: url.secure_url,
+        });
+       res.redirect("/events");
+      }).catch((error) => console.log(error));
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router

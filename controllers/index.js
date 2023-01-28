@@ -6,7 +6,7 @@ const public = require("./publicRoutes")
 const dashboard = require("./dashboardRoutes") //dashboard.js
 
 
-router.use("/", public)
+router.use(public)
 router.use(dashboard)
 
 

@@ -1,7 +1,7 @@
 
-<h1 class="animate-character flex-100 flex-center">Dashboard</h1>
+<h1 class="animate-character">Dashboard</h1>
 
-<div class="row" >
+<div class="row">
     <div class="col flex-center">
         <div id="div">
             <h2 class="center-text">QUICK WRITE NEW BLOG POST</h2>
@@ -40,7 +40,7 @@
     </div>
 
 
-    <div id="event-div" class="col-6">
+    <div id="event-div" class="col-6" id="post-column">
             {{#each posts}}
             {{> post}}
             {{/each}}
@@ -53,3 +53,4 @@
     </div>
 </div>
 
+<script src="/js/dashboard.js"></script>

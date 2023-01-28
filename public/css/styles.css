@@ -35,12 +35,19 @@ img {
     padding: 10px;
 }
 
+.row {
+    width: 100%;
+}
+
 .flex-center {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
+}
+#post-column {
+    min-width: 500px
 }
 
 #div, #divv {
@@ -105,12 +112,13 @@ footer {
   background-clip: border-box;
   background-size: 200% auto;
   color: #fff;
+  line-height: 1px;
   background-clip: text;
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
-  display: inline-block;
+  display: block;
       font-size: 8vw;
       
     text-align: center;

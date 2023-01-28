@@ -1,11 +1,12 @@
 //javascript connected
-console.log("JS connected");
+console.log("Dashboard JS connected");
 
 //accessing inputs and submit button
 const postTitle = document.getElementById("blog-title-input");
 const postContent = document.getElementById("content-input")
 const postPicture = document.getElementById("post-image")
-const createPostButton = document.getElementById("create-post-button");
+const createPostButton = document.getElementById
+("create-post-button");
 
 //converter function to convert image to base-64 format
 const convertBase64 = (file) => {
@@ -51,12 +52,11 @@ createPostButton.addEventListener("click", async (e) => {
       post_image: post_image
     };
     console.log(data);
-    submitEvent(data);
+    submitPost(data);
   }
 }
 );
 
-console.log("js connected")
 $(window).scroll(function(){
     $("#div").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "slow" );
   });
