@@ -1,69 +1,55 @@
 
-<h1 class="animate-character flex-100">Dashboard</h1>
+<h1 class="animate-character flex-100 flex-center">Dashboard</h1>
 
 <div class="row" >
-    <div class="col">
-    <div id="div" >
-    <h2 class="center-text">QUICK WRITE NEW BLOG POST</h2>
-    <div id="form-div" >
-    <form {{!--action="/dashboard" method="POST"--}} class="ui form">
-    <div class="field">
-        <label>Name of Event</label>
-        <input 
-            type="text" 
-            name="event_name"
-            id="event_name" 
-            placeholder="Name of Event"
-            >
-    </div>
-    <div class="field">
-    <label for="event_date">Date</label>
-        <input 
-        type="date" 
-        name="date"
-        id="event_date"
-        >
-        <label for="time">Time</label>
-        <input 
-        type="time" 
-        name="time"
-        id="time"
-        >
-    </div>
-    <div class="field">
-        <label>Location</label>
-        <input 
-            type="text" 
-            name="address" 
-            id="address"
-            placeholder="Location/Address">
-    </div>
-    <div class="field">
-        <label>Information About Event</label>
-        <input 
-        type="text" 
-        name="content" 
-        id = "content"
-        placeholder="Event Details">
-    </div>
-        <div class="ui file input">
-        <input type="file" id="event_picture" name="event_picture" />
+    <div class="col flex-center">
+        <div id="div">
+            <h2 class="center-text">QUICK WRITE NEW BLOG POST</h2>
+            <div id="form-div">
+                <form {{!--action="/dashboard" method="POST"--}}>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input 
+                            type="text" 
+                            name="blog-title"
+                            id="blog-title-input" 
+                            placeholder="Blog Title"
+                            class="form-control"
+                            >
+                    </div>
+                    <br>
+                    <div class="form-group"> 
+                        <label>Content</label>
+                        <textarea 
+                            type="text" 
+                            name="content" 
+                            id="content-input"
+                            class="form-control"
+                            placeholder="Share your thoughts"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Upload Blog Image</label><br><br>
+                        <input type="file" style="color:transparent; width:140px;" id="post-image"/>
+                    </div>
+                        <br>
+                    <button type="submit" id="create-post-button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
-        <br>
-        <br>
-    <button class="ui button" type="submit" id="createEventButton">Submit</button>
-    </form>
-    </div>
-    </div>
     </div>
 
+
     <div id="event-div" class="col-6">
-        {{#each posts}}
-        {{> post}}
-        {{/each}}
+            {{#each posts}}
+            {{> post}}
+            {{/each}}
     </div>
+
     <div class="col">
-        <img id="divv" src="https://static.vecteezy.com/system/resources/previews/005/878/293/non_2x/content-manager-modern-flat-concept-for-web-banner-design-woman-works-on-laptop-publishes-according-to-plan-video-audio-and-images-in-social-networks-illustration-with-isolated-people-scene-free-vector.jpg" style="width: 800px;">
+        <div id="divv">
+        <img class="img-fluid" src="https://static.vecteezy.com/system/resources/previews/005/878/293/non_2x/content-manager-modern-flat-concept-for-web-banner-design-woman-works-on-laptop-publishes-according-to-plan-video-audio-and-images-in-social-networks-illustration-with-isolated-people-scene-free-vector.jpg">
+        </div>
     </div>
 </div>
 

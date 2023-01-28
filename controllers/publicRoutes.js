@@ -34,6 +34,25 @@ router.get("/register", (req, res) => {
     res.render("pages/register")
 })
 
+router.post("/register", async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const newUser = await User.create({
+        //Credentials
+        username,
+        password,
+        });
+        req.session.save(() => {
+            req.session.logged_in = true;
+            req.session.user_id = newUser.id; //passing the user id
+            res.status(200).json(newUser);
+        });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+});
+
 router.post("/register", (req, res) => {
     //destructuring the request body
     const { username, password } = req.body //taking the values out

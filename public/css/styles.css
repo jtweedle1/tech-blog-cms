@@ -8,6 +8,7 @@ html {
 body {
     font-family: 'Roboto Mono', monospace;
     height: 100%;
+    overflow-x: hidden;
 }
 
 img {
@@ -31,7 +32,7 @@ img {
 }
 
 #form-div {
-    padding: 50px;
+    padding: 10px;
 }
 
 .flex-center {
@@ -48,6 +49,9 @@ img {
   transform: translateY(-50%);
 }
 
+#divv{ 
+    
+}
 
 .post-div {
     display: flex;
@@ -78,6 +82,10 @@ nav {
     margin-bottom: 50px;
 }
 
+#content-input {
+    height: 150px;
+}
+
 footer {
     position: absolute;
     width: 100%;
@@ -103,7 +111,8 @@ footer {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-      font-size: 100px;
+      font-size: 8vw;
+      
     text-align: center;
 }
 
