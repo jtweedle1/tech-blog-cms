@@ -60,11 +60,12 @@ router.post("/login", async (req, res) => {
   
       // Create session variables based on the logged in user -  !!! This is key for the requests that requires the current userid) !!!
       req.session.save(() => {
-        req.session.loggedIn = true;
         req.session.user_id = userData.id;
+        req.session.loggedIn = true;
+        res.redirect("/dashboard");
       });
 
-      res.redirect("/dashboard");
+      
     } catch (err) {
       res.status(400).json(err);
     }

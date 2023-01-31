@@ -1,0 +1,28 @@
+<div class="flex-center">
+<div class="card col-6">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}} by {{post.user.username}}</h5>
+    <h5></h5>
+    <p class="card-text">{{post.content}}</p>
+    <div class="post-button-div">
+        <a href="/posts/{{id}}" class="btn btn-primary">Read Post</a>
+    </div>
+  </div>
+</div>
+
+<form {{!--action="/dashboard" method="POST"--}}>
+    <div class="form-group"> 
+        <label>Add a Comment</label>
+        <textarea 
+            type="text" 
+            name="content" 
+            id="content-input"
+            class="form-control"
+            placeholder="Share your thoughts"></textarea>
+    </div>
+    <br>
+    <button class="btn btn-primary">Add Comment</button>
+</form>
+
+
+</div>
