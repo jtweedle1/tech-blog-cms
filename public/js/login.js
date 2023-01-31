@@ -22,7 +22,6 @@ loginButton.addEventListener("click", async (e) => {
         username: username.value,
         password: password.value,
     };
-    console.log(data)
     loginUser(data);
   });
   

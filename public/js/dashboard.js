@@ -49,9 +49,10 @@ createPostButton.addEventListener("click", async (e) => {
     const data = {
       title: postTitle.value,
       content: postContent.value,
-      post_image: post_image
+      image: post_image,
+      user_id: null
     };
-    console.log(data);
+    // console.log(data);
     submitPost(data);
   }
 }

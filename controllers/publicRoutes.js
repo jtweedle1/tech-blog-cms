@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
         })
         const posts = postData.map((post) => post.get({plain: true}))
         console.log(posts)
-        res.render("pages/homepage", { posts })
+        res.render("pages/homepage", { posts, loggedIn: req.session.loggedIn })
     } catch {
 
     }
@@ -86,10 +86,8 @@ router.post("/register", async (req, res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.user_id = newUser.id; //passing the user id
-            res.status(200).json(newUser);
+            res.redirect("/dashboard")
         });
-        res.redirect("/dashboard")
-        console.log(req.session.loggedIn)
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

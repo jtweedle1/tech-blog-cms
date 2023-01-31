@@ -31,16 +31,17 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.post("/dashboard", async (req, res) => {
     try {
-      const { title, content, post_image } = req.body;
+      const { title, content, image } = req.body;
       const user_id = req.session.user_id;
-      const image = uploadImage(post_image)
+      const post_image = uploadImage(image)
       .then(async (url) => {
         const newPost = await Post.create({
           title,
           content,
-          post_image: url.secure_url,
+          user_id,
+          image: url.secure_url,
         });
-       res.redirect("/events");
+       res.redirect("/");
       }).catch((error) => console.log(error));
     } catch (err) {
       console.log(err);

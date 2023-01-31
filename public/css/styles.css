@@ -79,8 +79,8 @@ img {
 
 main {
     min-height: 100%;
-    display: flex;
-    flex: column;
+    /* display: flex; */
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -112,7 +112,7 @@ footer {
   background-clip: border-box;
   background-size: 200% auto;
   color: #fff;
-  line-height: 1px;
+  /* line-height: 1px; */
   background-clip: text;
   text-fill-color: transparent;
   -webkit-background-clip: text;

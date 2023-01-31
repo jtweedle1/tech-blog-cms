@@ -11,14 +11,13 @@ const submitUser = (data) => {
       .post("/register", data)
       .then((results) => {
         console.log(results.data);
-        //if the results are okay redirect to the dashboard
-        // document.location.replace("/dashboard");
+        document.location.replace("/dashboard");
       })
       .catch((error) => {
         alert("There was a problem with the signup. Try again later.");
         console.log(error);
       });
-  };
+};
 
 submitButton.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -26,7 +25,6 @@ submitButton.addEventListener("click", async (e) => {
         username: username.value,
         password: password.value,
     };
-    console.log(data)
     submitUser(data);
   });
   
