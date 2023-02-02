@@ -1,28 +1,36 @@
 <div class="flex-center">
+
+<h2>{{post.title}} by {{post.user.username}}</h2>
+
 <div class="card col-6">
   <div class="card-body">
-    <h5 class="card-title">{{post.title}} by {{post.user.username}}</h5>
     <h5></h5>
     <p class="card-text">{{post.content}}</p>
-    <div class="post-button-div">
-        <a href="/posts/{{id}}" class="btn btn-primary">Read Post</a>
-    </div>
   </div>
 </div>
 
-<form {{!--action="/dashboard" method="POST"--}}>
+{{#if loggedIn}}
+<form action="/posts/{{post.id}}" method="post">
     <div class="form-group"> 
         <label>Add a Comment</label>
         <textarea 
             type="text" 
             name="content" 
-            id="content-input"
+            id="comment-input"
             class="form-control"
-            placeholder="Share your thoughts"></textarea>
+            placeholder="Add a comment"></textarea>
     </div>
     <br>
-    <button class="btn btn-primary">Add Comment</button>
+    <button class="btn btn-primary" id="comment-button">Add Comment</button>
 </form>
+{{/if}}
 
+<h4>Comments:</h4>
+
+{{#each post.comments}}
+{{> comment}}
+{{/each}}
 
 </div>
+
+<script src="/js/comment.js"></script>
