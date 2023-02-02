@@ -19,7 +19,7 @@ Post.init({
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'User',
+            model: 'user',
             key: 'id'
         }
     },
@@ -34,7 +34,7 @@ Post.init({
   }, {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-    modelName: 'Post', // We need to choose the model name
+    modelName: 'post', // We need to choose the model name
     tableName: 'post',
     timestamps: true, //timestamps automatically created
     underscored: true
