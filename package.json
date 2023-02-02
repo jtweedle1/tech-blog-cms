@@ -4,13 +4,11 @@
   "description": "## Your Task",
   "main": "index.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-    },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jtweedle1/Tech-Blog-CMS.git"
