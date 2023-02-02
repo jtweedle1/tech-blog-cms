@@ -48,4 +48,9 @@ router.post("/posts/:id", withAuth, async (req, res) => {
   }
 });
 
+router.put("/posts/:id", withAuth, async (req, res) => { 
+  
+}
+)
+
 module.exports = router;
