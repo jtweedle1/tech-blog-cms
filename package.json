@@ -4,11 +4,13 @@
   "description": "## Your Task",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "start": "node server.js",
-    "seed": "node seeds/seed.js"
-  },
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jtweedle1/Tech-Blog-CMS.git"
@@ -31,7 +33,8 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.28.0"
+    "sequelize": "^6.28.0",
+    "serve": "^14.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
