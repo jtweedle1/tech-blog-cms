@@ -9,7 +9,7 @@ const expHandlebars = require("express-handlebars") //invoking handlebars so tha
 const sequelize = require("./config/db") //db connection config, sequelize
 const routes = require("./controllers") //everything in index is accessible
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const cors = require('cors');
+const path = require("path")
 
 //creating a cookie, needs a secret
 const sess = {
@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 3001;
 app.use(session(sess))
 app.use(express.json()) //when you submit a regular form
 app.use(express.urlencoded({ extended: true })) //body parser; allows us to access the req body
-app.use(express.static("public")) //making files and folders in public available
+app.use(express.static(path.join(__dirname, 'public'))) //making files and folders in public available
 app.use(routes) //server can use the routes and they are connected
 
 
