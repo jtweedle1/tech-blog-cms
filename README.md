@@ -9,7 +9,7 @@
 ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![dotenv](https://img.shields.io/badge/dotenv-green)
       
-This app is a tech blog for tech enthusiasts to come and share their ideas. Users can use this to create and view blog posts, and perform all CRUD functions. It has a clean and intuitive user interface that highlights the posts being created. Built using MySQL2, Express, Sequelize, Handlebars, dotenv, and Bootstrap.
+This app is a content management system-style tech blog for tech enthusiasts to come and share their ideas. Users can use this to create and view blog posts, and perform all CRUD functions. It has a clean and intuitive user interface that highlights the posts being created. Built using MySQL2, Express, Sequelize, Handlebars, dotenv, and Bootstrap.
 
 The motivation for this project was to demonstrate my ability to create a project utilizing CRUD functions that anyone would immediately be able to test and understand. This website was made with tech enthusiasts in mind, which is evident in the font choice and images.
 
