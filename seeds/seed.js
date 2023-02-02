@@ -1,5 +1,5 @@
 const sequelize = require('../config/db');
-const { User, Post } = require('../models/');
+const { User, Post, Comment } = require('../models/');
 const path = require("path")
 require("dotenv").config({ path: path.resolve(__dirname, '../.env') }); //invoking env so that process.env works
 const seedUsers = require('./userSeed');
