@@ -31,6 +31,10 @@ img {
     text-align: center;
 }
 
+.accent {
+    color: rgb(252, 112, 13);
+}
+
 #form-div {
     padding: 10px;
 }
@@ -48,6 +52,10 @@ img {
 }
 #post-column {
     min-width: 500px
+}
+
+#post-id {
+    display: none;
 }
 
 #div, #divv {
@@ -97,6 +105,10 @@ nav {
 footer {
     position: absolute;
     width: 100%;
+}
+
+#edit-button {
+    max-width: 30px;
 }
 
 .animate-character

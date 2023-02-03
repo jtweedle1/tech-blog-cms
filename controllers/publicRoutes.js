@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
             ]
         })
         const posts = postData.map((post) => post.get({plain: true}))
-        console.log(posts)
+        // console.log(posts)
         res.render("pages/homepage", { posts, loggedIn: req.session.loggedIn })
     } catch {
 
@@ -39,8 +39,32 @@ router.post("/login", async (req, res) => {
       const userData = await User.findOne({
         where: { username: req.body.username },
       });
-      console.log(userData)
-
+      const postData = await Post.findAll({
+        where: {
+          user_id: userData.id
+      },
+      include: [
+          {
+              model: User,
+              attributes: ['username']
+          }
+      ]
+    });
+    
+      const posts = postData.map((post) => post.get({plain: true}))
+      // const dashboardData = await Post.findAll({
+      //   where: {
+      //       user_id: req.session.user_id
+      //   },
+      //   include: [
+      //       {
+      //           model: User,
+      //           attributes: ['username']
+      //       }
+      //   ]
+      // })
+      // const posts = dashboardData.map((post) => post.get({plain: true}))
+      // console.log(userData)
       if (!userData) {
         res.send(
           "<script>alert('Invalid username or password, please try again!'); window.location.href = '/login';</script>"
@@ -57,15 +81,17 @@ router.post("/login", async (req, res) => {
         return;
   
       }
+
+      
+    
   
       // Create session variables based on the logged in user -  !!! This is key for the requests that requires the current userid) !!!
       req.session.save(() => {
-        req.session.user_id = userData.id;
         req.session.loggedIn = true;
-        res.redirect("/dashboard");
+        req.session.user_id = userData.id;
+        res.render("pages/dashboard", { loggedIn: req.session.loggedIn, posts});
       });
 
-      
     } catch (err) {
       res.status(400).json(err);
     }

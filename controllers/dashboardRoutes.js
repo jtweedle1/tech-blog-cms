@@ -23,13 +23,14 @@ router.get("/dashboard", withAuth, async (req, res) => {
             ]
         })
         const posts = dashboardData.map((post) => post.get({plain: true}))
+        
         res.render("pages/dashboard", { posts, loggedIn: req.session.loggedIn, jsFile: "dashboard.js", user_id: req.session.user_id })
     } catch(err) {
         res.status(500).json(err);
     }
 })
 
-router.post("/dashboard", async (req, res) => {
+router.post("/dashboard", withAuth, async (req, res) => {
     try {
       const { title, content, image } = req.body;
       const user_id = req.session.user_id;
@@ -47,6 +48,26 @@ router.post("/dashboard", async (req, res) => {
       console.log(err);
       res.status(500).json(err);
     }
-  });
+});
+
+router.delete("/dashboard", async (req, res) => {
+  try {
+    const { title, content, image } = req.body;
+    const user_id = req.session.user_id;
+    const post_image = uploadImage(image)
+    .then(async (url) => {
+      const newPost = await Post.create({
+        title,
+        content,
+        user_id,
+        image: url.secure_url,
+      });
+     res.redirect("/");
+    }).catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router

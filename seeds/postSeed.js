@@ -31,12 +31,6 @@ const postData = [
         "user_id": 105,
         "content": "Samsung, Google and Qualcomm are joining hands to make a mixed-reality platform. Executives from the companies, namely Samsung’s TM Roh, Qualcomm’s Cristiano Amon, and Google’s Hiroshi Lockheimer came on stage at the Samsung Galaxy Unpacked event to make this announcement. These companies only announced the partnership — they had no future device or hardware product to show. “We are working to create a new era of highly immersive digital experiences that blur the line between our physical and digital worlds. With our Snapdragon XR tech, Samsung’s amazing products, and Google experiences we have the foundation to make this opportunity a reality,” Amon said onstage. Lockheimer noted that Google has been investing in both AR and VR “across experiences and technology”. He added that this partnership will provide “cutting-edge advanced hardware and software” to “deliver the next-gen technology.”" 
     },
-    {
-        "id": 6,
-        "title": "Why I Love Scooby Snax",
-        "user_id": 106,
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Feugiat in fermentum posuere urna. Amet nisl purus in mollis nunc. Tellus orci ac auctor augue mauris augue. Dolor morbi non arcu risus quis varius quam quisque id. Et malesuada fames ac turpis egestas sed tempus. Eget mi proin sed libero enim sed faucibus. Turpis massa sed elementum tempus. Congue eu consequat ac felis donec." 
-    }
   ]
 
 const seedPosts = () => Post.bulkCreate(postData)

@@ -36,10 +36,18 @@ app.use(routes) //server can use the routes and they are connected
 
 
 //configure/connect handlebars to express
-// const handlebars = expHandlebars.create({}); //we will pass helper functions here
-// app.engine("handlebars", handlebars.engine)
-const { engine } = require("express-handlebars")
-app.engine("handlebars", engine({defaultLayout: "main"}))
+const handlebars = expHandlebars.create({
+    helpers: {
+        cut: function (string) { 
+            var truncString = string.slice(0, 500)
+            return truncString
+        }
+    }
+}); //we will pass helper functions here
+
+app.engine("handlebars", handlebars.engine)
+// const { engine } = require("express-handlebars")
+// app.engine("handlebars", engine({defaultLayout: "main"}))
 app.set("view engine", "handlebars") //second param. is the file extension
 
 //connecting to the database - async

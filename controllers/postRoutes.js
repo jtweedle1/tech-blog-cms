@@ -29,7 +29,7 @@ router.get("/posts/:id", async (req, res) => {
       });
     const post = dbPostData.get({ plain: true })
     res.render("pages/postdetails", { post, loggedIn: req.session.loggedIn });
-    console.log(dbPostData)
+    // console.log(dbPostData)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -41,16 +41,11 @@ router.post("/posts/:id", withAuth, async (req, res) => {
         include: [{ model: User, attributes: ["id","username"] }],
       });
     const post = dbPostData.get({ plain: true })
-    res.render("pages/postdetails", { post });
-    console.log(dbPostData)
+    res.render("pages/postdetails", { post, loggedIn: req.session.loggedIn });
+    // console.log(dbPostData)
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-router.put("/posts/:id", withAuth, async (req, res) => { 
-  
-}
-)
 
 module.exports = router;

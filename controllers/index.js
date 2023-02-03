@@ -5,11 +5,13 @@ const router = require("express").Router()
 const public = require("./publicRoutes")
 const dashboard = require("./dashboardRoutes") //dashboard.js
 const posts = require("./postRoutes")
+const apiRoutes = require('./api');
 
 
 router.use(public)
 router.use(dashboard)
 router.use(posts)
+router.use('/api', apiRoutes)
 
 
 router.use("*", (req, res) => {
