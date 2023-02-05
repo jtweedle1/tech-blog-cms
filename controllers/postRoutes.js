@@ -35,17 +35,22 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
-router.post("/posts/:id", withAuth, async (req, res) => {
-  try {
-    const dbCommentData = await Comment.findByPk(req.params.id, {
-        include: [{ model: User, attributes: ["id","username"] }],
-      });
-    const post = dbPostData.get({ plain: true })
-    res.render("pages/postdetails", { post, loggedIn: req.session.loggedIn });
-    // console.log(dbPostData)
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.post("/posts/:id", withAuth, async (req, res) => {
+//   try {
+//     const dbCommentData = await Comment.findByPk(req.params.id, {
+//         include: [{ model: User, attributes: ["id","username"] }],
+//       });
+//     const post = dbPostData.get({ plain: true })
+//     res.render("pages/postdetails", { post, loggedIn: req.session.loggedIn });
+//     // console.log(dbPostData)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.get("/posts/edit/:id", withAuth, async (req, res) => {
+  const article = await Post.findById(req.params.id)
+  res.render()
+})
 
 module.exports = router;

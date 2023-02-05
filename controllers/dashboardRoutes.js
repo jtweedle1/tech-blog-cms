@@ -34,6 +34,7 @@ router.post("/dashboard", withAuth, async (req, res) => {
     try {
       const { title, content, image } = req.body;
       const user_id = req.session.user_id;
+      console.log(user_id)
       const post_image = uploadImage(image)
       .then(async (url) => {
         const newPost = await Post.create({

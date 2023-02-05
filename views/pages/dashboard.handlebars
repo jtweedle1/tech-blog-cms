@@ -1,10 +1,11 @@
 
 <h1 class="animate-character flex-100">Dashboard</h1>
 
+<div class="container">
 <div class="row">
-    <div class="col flex-center">
+    <div class="col-md-6 flex-center">
         <div id="div">
-            <h2 class="center-text">QUICK WRITE NEW BLOG POST</h2>
+            <h2 class="center-text">NEW POST</h2>
             <div id="form-div">
                 <form {{!--action="/dashboard" method="POST"--}}>
                     <div class="form-group">
@@ -35,22 +36,19 @@
                         <br>
                     <button type="submit" id="create-post-button" class="btn btn-primary">Submit</button>
                 </form>
-            </div>
         </div>
     </div>
+</div>
 
 
-    <div id="event-div" class="col-6" id="post-column">
+    <div id="event-div" class="col-md-6 " id="post-column">
         {{#each posts}}
         {{> userpost}}
         {{/each}}
     </div>
 
-    <div class="col">
-        <div id="divv">
-        <img class="img-fluid" src="https://static.vecteezy.com/system/resources/previews/005/878/293/non_2x/content-manager-modern-flat-concept-for-web-banner-design-woman-works-on-laptop-publishes-according-to-plan-video-audio-and-images-in-social-networks-illustration-with-isolated-people-scene-free-vector.jpg">
-        </div>
-    </div>
+</div>
+
 </div>
 
 <script src="/js/dashboard.js"></script>

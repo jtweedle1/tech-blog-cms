@@ -1,5 +1,5 @@
-const username = document.getElementById('username-login').value.trim();
-const password = document.getElementById('password-login').value.trim();
+const username = document.getElementById('username-login')
+const password = document.getElementById('password-login')
 const loginButton = document.getElementById('login-button')
 
 const loginUser = async (data) => {
@@ -8,11 +8,11 @@ const loginUser = async (data) => {
         const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' }
         })
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/');
         }
         
         else {
