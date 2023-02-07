@@ -1,5 +1,5 @@
 // javascript connected
-console.log("Comment Edit Comment JS connected");
+console.log("Create Comment JS connected");
 
 //accessing inputs and submit button
 const commentText = document.getElementById("comment-input")
@@ -21,7 +21,7 @@ const newComment = async (event) => {
       });
   
       if (response.ok) {
-        window.location.reload();
+        setTimeout(window.location.reload(true))
       } else {
         alert('Failed to create comment');
       }

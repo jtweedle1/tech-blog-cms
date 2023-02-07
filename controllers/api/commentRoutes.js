@@ -11,6 +11,7 @@ router.post('/', async (req, res) => {
         user_id, 
         post_id
     })
+    res.redirect("/")
     } catch (err) {
         console.log(err);
     }
