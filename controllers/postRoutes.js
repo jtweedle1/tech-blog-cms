@@ -35,6 +35,68 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
+router.put("/posts/:id", withAuth, (req, res) => {
+  const { title, content } = req.body;
+  const post_id = req.params.id;
+  Post.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  }).then(affectedRows => 
+    {
+      if (affectedRows > 0) {
+          res.redirect("/dashboard")
+      } else {
+          res.status(404).end();
+      }
+        })
+  // try {
+  //   const dbPostData = await Post.findByPk(req.params.id, {
+  //     include: [
+  //       { model: User, attributes: ['id','username'] }, 
+  //       { model: Comment, attributes: ['id', 'content', 'post_id', 'user_id'], include: { model: User, attributes: ['username']}}
+  //   ],
+  //   })
+  //   const post = dbPostData.get({ plain: true })
+  //   console.log(post)
+  //   res.redirect("/dashboard", { post, loggedIn: req.session.loggedIn });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+})
+
+router.get("/posts/edit/:id", async (req, res) => {
+  try {
+    const dbPostData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: User, attributes: ['id','username'] }, 
+        { model: Comment, attributes: ['id', 'content', 'post_id', 'user_id'], include: { model: User, attributes: ['username']}}
+    ],
+    })
+    const post = dbPostData.get({ plain: true })
+    console.log(post)
+    res.render("pages/editpost", { post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+router.get("/posts/delete/:id", async (req, res) => {
+  try {
+    const dbPostData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: User, attributes: ['id','username'] }, 
+        { model: Comment, attributes: ['id', 'content', 'post_id', 'user_id'], include: { model: User, attributes: ['username']}}
+    ],
+    })
+    const post = dbPostData.get({ plain: true })
+    console.log(post)
+    res.render("pages/deletepost", { post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 // router.post("/posts/:id", withAuth, async (req, res) => {
 //   try {
 //     const dbCommentData = await Comment.findByPk(req.params.id, {
@@ -48,9 +110,5 @@ router.get("/posts/:id", async (req, res) => {
 //   }
 // });
 
-router.get("/posts/edit/:id", withAuth, async (req, res) => {
-  const article = await Post.findById(req.params.id)
-  res.render()
-})
 
 module.exports = router;

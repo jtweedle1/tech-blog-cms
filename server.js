@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 3001;
 app.use(session(sess))
 app.use(express.json()) //when you submit a regular form
 app.use(express.urlencoded({ extended: true })) //body parser; allows us to access the req body
-app.use(express.static(path.join(__dirname, 'public'))) //making files and folders in public available
+app.use(express.static('public')) //making files and folders in public available
 app.use(routes) //server can use the routes and they are connected
 
 
